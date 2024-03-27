@@ -12,6 +12,7 @@ Install
 **Be sure to use the same version of the code as the version of the docs
 you're reading.** You probably want the latest tagged version, but the
 default Git version is the main branch. ::
+    
 
     # clone the repository
     $ git clone https://github.com/pallets/flask
