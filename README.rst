@@ -1,80 +1,68 @@
-Flask
-=====
+Flaskr
+======
 
-Flask is a lightweight `WSGI`_ web application framework. It is designed
-to make getting started quick and easy, with the ability to scale up to
-complex applications. It began as a simple wrapper around `Werkzeug`_
-and `Jinja`_ and has become one of the most popular Python web
-application frameworks.
+The basic blog app built in the Flask `tutorial`_.
 
-Flask offers suggestions, but doesn't enforce any dependencies or
-project layout. It is up to the developer to choose the tools and
-libraries they want to use. There are many extensions provided by the
-community that make adding new functionality easy.
-
-.. _WSGI: https://wsgi.readthedocs.io/
-.. _Werkzeug: https://werkzeug.palletsprojects.com/
-.. _Jinja: https://jinja.palletsprojects.com/
+.. _tutorial: https://flask.palletsprojects.com/tutorial/
 
 
-Installing
-----------
+Install
+-------
 
-Install and update using `pip`_:
+**Be sure to use the same version of the code as the version of the docs
+you're reading.** You probably want the latest tagged version, but the
+default Git version is the main branch. ::
+
+    # clone the repository
+    $ git clone https://github.com/pallets/flask
+    $ cd flask
+    # checkout the correct version
+    $ git tag  # shows the tagged versions
+    $ git checkout latest-tag-found-above
+    $ cd examples/tutorial
+
+Create a virtualenv and activate it::
+
+    $ python3 -m venv .venv
+    $ . .venv/bin/activate
+
+Or on Windows cmd::
+
+    $ py -3 -m venv .venv
+    $ .venv\Scripts\activate.bat
+
+Install Flaskr::
+
+    $ pip install -e .
+
+Or if you are using the main branch, install Flask from source before
+installing Flaskr::
+
+    $ pip install -e ../..
+    $ pip install -e .
+
+
+Run
+---
 
 .. code-block:: text
 
-    $ pip install -U Flask
+    $ flask --app flaskr init-db
+    $ flask --app flaskr run --debug
 
-.. _pip: https://pip.pypa.io/en/stable/getting-started/
-
-
-A Simple Example
-----------------
-
-.. code-block:: python
-
-    # save this as app.py
-    from flask import Flask
-
-    app = Flask(__name__)
-
-    @app.route("/")
-    def hello():
-        return "Hello, World!"
-
-.. code-block:: text
-
-    $ flask run
-      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+Open http://127.0.0.1:5000 in a browser.
 
 
-Contributing
-------------
+Test
+----
 
-For guidance on setting up a development environment and how to make a
-contribution to Flask, see the `contributing guidelines`_.
+::
 
-.. _contributing guidelines: https://github.com/pallets/flask/blob/main/CONTRIBUTING.rst
+    $ pip install '.[test]'
+    $ pytest
 
+Run with coverage report::
 
-Donate
-------
-
-The Pallets organization develops and supports Flask and the libraries
-it uses. In order to grow the community of contributors and users, and
-allow the maintainers to devote more time to the projects, `please
-donate today`_.
-
-.. _please donate today: https://palletsprojects.com/donate
-
-
-Links
------
-
--   Documentation: https://flask.palletsprojects.com/
--   Changes: https://flask.palletsprojects.com/changes/
--   PyPI Releases: https://pypi.org/project/Flask/
--   Source Code: https://github.com/pallets/flask/
--   Issue Tracker: https://github.com/pallets/flask/issues/
--   Chat: https://discord.gg/pallets
+    $ coverage run -m pytest
+    $ coverage report
+    $ coverage html  # open htmlcov/index.html in a browser
