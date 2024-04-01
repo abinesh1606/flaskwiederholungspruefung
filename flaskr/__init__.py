@@ -13,6 +13,8 @@ def create_app(test_config=None):
         SQLALCHEMY_TRACK_MODIFICATIONS=False
     )
 
+app.config['RESTX_MASK_SWAGGER'] = False
+
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile("config.py", silent=True)
@@ -30,10 +32,21 @@ def create_app(test_config=None):
     def hello():
         return "Hello, World!"
 
-    # register the database commands
-    from . import db
+    from .extensions import db,login_manager,api
+    blueprint = Blueprint('api', __name__, url_prefix='/api')
 
+    api.init_app(blueprint)
+    from .resources import ns
+    api.add_namespace(ns)
+    
     db.init_app(app)
+    login_manager.init_app(app)
+    
+    from .db_models import User
+    
+    @login_manager.user_loader
+    def user_loader(user_id):
+        return User.query.get(int(user_id))
 
     # apply the blueprints to the app
     from . import auth
@@ -41,6 +54,7 @@ def create_app(test_config=None):
 
     app.register_blueprint(auth.bp)
     app.register_blueprint(blog.bp)
+    app.register_blueprint(blueprint)
 
     # make url_for('index') == url_for('blog.index')
     # in another app, you might define a separate main index here with
