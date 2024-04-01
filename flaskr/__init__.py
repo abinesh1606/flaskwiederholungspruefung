@@ -48,6 +48,11 @@ app.config['RESTX_MASK_SWAGGER'] = False
     def user_loader(user_id):
         return User.query.get(int(user_id))
 
+    
+    @login_manager.user_loader
+    def user_loader(user_id):
+        return User.query.get(int(user_id))
+
     # apply the blueprints to the app
     from . import auth
     from . import blog
