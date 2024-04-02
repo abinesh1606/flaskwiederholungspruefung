@@ -1,16 +1,18 @@
 from flask import Blueprint
 from flask import flash
-from flask import g
 from flask import redirect
 from flask import render_template
 from flask import request
 from flask import url_for
+from flask import jsonify
 from werkzeug.exceptions import abort
-
-from .auth import login_required
-from .db import get_db
+from flask_login import login_required
+from flask_login import current_user
+from .db_models import Post, Like
+from .extensions import db
 
 bp = Blueprint("blog", __name__)
+
 
 
 @bp.route("/")
