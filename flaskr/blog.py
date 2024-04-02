@@ -134,6 +134,9 @@ def update(id):
 @login_required
 def delete(id):
     """Delete a post.
+    Ensures that the post exists and that the logged in user is the
+    author of the post.
+    """
 
     Ensures that the post exists and that the logged in user is the
     author of the post.
