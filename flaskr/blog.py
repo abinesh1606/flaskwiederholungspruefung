@@ -72,10 +72,12 @@ def create():
     return render_template("blog/create.html")
 
 
-@bp.route("/create", methods=("GET", "POST"))
+@bp.route("/<int:id>/update", methods=("GET", "POST"))
 @login_required
-def create():
-    """Create a new post for the current user."""
+def update(id):
+    """Update a post if the current user is the author."""
+    post = get_post(id)
+
     if request.method == "POST":
         title = request.form["title"]
         body = request.form["body"]
@@ -87,15 +89,18 @@ def create():
         if error is not None:
             flash(error)
         else:
-            db = get_db()
-            db.execute(
-                "INSERT INTO post (title, body, author_id) VALUES (?, ?, ?)",
-                (title, body, g.user["id"]),
-            )
-            db.commit()
+            post.title = title
+            post.body = body
+            db.session.commit()
             return redirect(url_for("blog.index"))
 
-    return render_template("blog/create.html")
+    return render_template("blog/update.html", post=post)
+
+
+@bp.route("/<int:id>/delete", methods=("POST",))
+@login_required
+def delete(id):
+    """Delete a post.
 
 
 @bp.route("/<int:id>/update", methods=("GET", "POST"))
