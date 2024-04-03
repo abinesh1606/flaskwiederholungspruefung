@@ -95,4 +95,43 @@ def update(id):
 
     return render_template("blog/update.html", post=post)
 
+@bp.route("/<int:id>/update", methods=("GET", "POST"))
+@login_required
+def update(id):
+    """Update a post if the current user is the author."""
+    post = get_post(id)
+
+    if request.method == "POST":
+        title = request.form["title"]
+        body = request.form["body"]
+        error = None
+
+        if not title:
+            error = "Title is required."
+
+        if error is not None:
+            flash(error)
+        else:
+            post.title = title
+            post.body = body
+            db.session.commit()
+            return redirect(url_for("blog.index"))
+        
+        return render_template("blog/create.html")
+
+
+@bp.route("/<int:id>/update", methods=("GET", "POST"))
+@login_required
+def update(id):
+    """Update a post if the current user is the author."""
+    post = get_post(id)
+
+    if request.method == "POST":
+        title = request.form["title"]
+        body = request.form["body"]
+        error = None
+
+        if not title:
+            error = "Title is required."
+
 
