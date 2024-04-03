@@ -32,3 +32,16 @@ class Post(db.Model):
 def __repr__(self):
         return f'<Post {self.title}>'
 
+class Like(db.Model):
+    __tablename__ = 'likes'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
+    
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete="CASCADE"), nullable=False)
+    
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete="CASCADE"), nullable=False)
+
+    def __repr__(self):
+        return f'<Like {self.id}>'
+
