@@ -149,10 +149,9 @@ def delete(id):
         and whether the current user has liked the post.
     
     """
-
-    
-    get_post(id)
-    db = get_db()
-    db.execute("DELETE FROM post WHERE id = ?", (id,))
-    db.commit()
+ get_post(id)
+    Post.query.filter_by(id=id).delete()
+    db.session.commit()
     return redirect(url_for("blog.index"))
+    
+    
