@@ -140,6 +140,7 @@ def update(id):
             post.title = title
             post.body = body
             db.session.commit()
+            
               return redirect(url_for("blog.index"))
 
     return render_template("blog/update.html", post=post)
