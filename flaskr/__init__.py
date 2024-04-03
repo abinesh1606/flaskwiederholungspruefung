@@ -12,8 +12,9 @@ def create_app(test_config=None):
         SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(app.instance_path, "flaskr.sqlite"),
         SQLALCHEMY_TRACK_MODIFICATIONS=False
     )
-
-app.config['RESTX_MASK_SWAGGER'] = False
+    
+    
+    app.config['RESTX_MASK_SWAGGER'] = False
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
