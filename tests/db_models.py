@@ -35,7 +35,7 @@ def __repr__(self):
 class Like(db.Model):
     __tablename__ = 'likes'
     
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, prundeimary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
     
     author_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete="CASCADE"), nullable=False)
