@@ -14,7 +14,6 @@ from .extensions import db
 bp = Blueprint("blog", __name__)
 
 
-
 @bp.route("/")
 def index():
     """Show all the posts, most recent first."""
@@ -42,7 +41,7 @@ def get_post(id, check_author=True):
     if check_author and post.author_id != current_user.id:
         abort(403)
 
-    return post
+    return post 
 
 
 @bp.route("/create", methods=("GET", "POST"))
