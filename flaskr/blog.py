@@ -135,8 +135,11 @@ def update(id):
             error = "Title is required."
 
        if error is not None:
-                    flash(error)
-
+            flash(error)
+        else:
+            post.title = title
+            post.body = body
+            db.session.commit()
 
 
             
