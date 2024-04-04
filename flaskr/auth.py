@@ -19,6 +19,24 @@ def register():
      Validates that the username is not already taken. Hashes the
     password for security.
     """
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        error = None
+
+        if not username:
+            error = "Username is required."
+        elif not password:
+            error = "Password is required."
+
+        if error is None:
+            try:
+                new_user = User(
+                    username=username,
+                    password=generate_password_hash(password)
+                )
+                db.session.add(new_user)
+                db.session.commit()
 
 def login_required(view):
     """View decorator that redirects anonymous users to the login page."""
