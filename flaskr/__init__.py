@@ -43,6 +43,12 @@ def create_app(test_config=None):
     
     db.init_app(app)
     login_manager.init_app(app)
+
+    from .db_models import User
+    
+    @login_manager.user_loader
+    def user_loader(user_id):
+        return User.query.get(int(user_id))
     
 
     
