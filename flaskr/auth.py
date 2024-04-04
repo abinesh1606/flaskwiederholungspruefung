@@ -62,6 +62,12 @@ def login():
          error = None
         user = User.query.filter_by(username=username).first()
 
+        if user is None:
+            error = "Incorrect username."
+        elif not check_password_hash(user.password, password):
+            error = "Incorrect password."
+
+
 
 
 @bp.route("/login", methods=("GET", "POST"))
