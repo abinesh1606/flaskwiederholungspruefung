@@ -8,9 +8,8 @@ from flask import jsonify
 from werkzeug.exceptions import abort
 from flask_login import login_required
 from flask_login import current_user
-from flaskr.db_models import Post, Like
-from flaskr.extensions import db
-
+from .db_models import Post, Like
+from .extensions import db
 
 bp = Blueprint("blog", __name__)
 
