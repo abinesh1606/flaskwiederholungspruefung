@@ -1,15 +1,16 @@
-import functools
-
 from flask import Blueprint
 from flask import flash
-from flask import g
 from flask import redirect
 from flask import render_template
 from flask import request
-from flask import session
 from flask import url_for
 from werkzeug.security import check_password_hash
 from werkzeug.security import generate_password_hash
+from flask_login import login_user,logout_user
+from .db_models import User
+from .extensions import db
+from sqlalchemy import exc
+
 
 from .db import get_db
 
