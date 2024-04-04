@@ -71,6 +71,9 @@ def login():
             # login user using flask-login method
             login_user(user, remember=remember_me)
             return redirect(url_for("index"))
+        
+        flash(error)
+        
 
 
 
