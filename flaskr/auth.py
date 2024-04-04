@@ -51,6 +51,15 @@ def register():
 
     return render_template("auth/register.html")
 
+@bp.route("/login", methods=("GET", "POST"))
+def login():
+    """Log in a registered user by using login_user from flask-login."""
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        remember_me = True if request.form.get('remember_me') else False
+
+
 
 @bp.route("/login", methods=("GET", "POST"))
 def login():
