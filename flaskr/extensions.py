@@ -8,4 +8,4 @@ api = Api(
         doc='/docs/'
     )
 db = SQLAlchemy()
-login_manager = LoginManager()
+login_manager = LginManager()
