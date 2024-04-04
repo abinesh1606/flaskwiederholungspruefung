@@ -11,8 +11,8 @@ from .db_models import User
 from .extensions import db
 from sqlalchemy import exc
 
+bp = Blueprint("auth", __name__, url_prefix="/auth")
 
-from .db import get_db
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
