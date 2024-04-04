@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
-
+    
     posts = db.relationship('Post', backref='author', passive_deletes=True)
     likes = db.relationship('Like', backref='author', passive_deletes=True)
 
@@ -29,7 +29,7 @@ class Post(db.Model):
     
     likes = db.relationship('Like', backref='post', passive_deletes=True)
 
-def __repr__(self):
+    def __repr__(self):
         return f'<Post {self.title}>'
 
 class Like(db.Model):
@@ -44,4 +44,3 @@ class Like(db.Model):
 
     def __repr__(self):
         return f'<Like {self.id}>'
-

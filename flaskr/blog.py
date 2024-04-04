@@ -41,7 +41,7 @@ def get_post(id, check_author=True):
     if check_author and post.author_id != current_user.id:
         abort(403)
 
-    return post 
+    return post
 
 
 @bp.route("/create", methods=("GET", "POST"))
@@ -95,67 +95,44 @@ def update(id):
 
     return render_template("blog/update.html", post=post)
 
-@bp.route("/<int:id>/update", methods=("GET", "POST"))
-@login_required
-def update(id):
-    """Update a post if the current user is the author."""
-    post = get_post(id)
-
-    if request.method == "POST":
-        title = request.form["title"]
-        body = request.form["body"]
-        error = None
-
-        if not title:
-            error = "Title is required."
-
-        if error is not None:
-            flash(error)
-        else:
-            post.title = title
-            post.body = body
-            db.session.commit()
-            return redirect(url_for("blog.index"))
-        
-        return render_template("blog/create.html")
-
-
-@bp.route("/<int:id>/update", methods=("GET", "POST"))
-@login_required
-def update(id):
-    """Update a post if the current user is the author."""
-    post = get_post(id)
-
-    if request.method == "POST":
-        title = request.form["title"]
-        body = request.form["body"]
-        error = None
-
-        if not title:
-            error = "Title is required."
-
-       if error is not None:
-            flash(error)
-        else:
-            post.title = title
-            post.body = body
-            db.session.commit()
-            
-              return redirect(url_for("blog.index"))
-
-    return render_template("blog/update.html", post=post)
-
 
 @bp.route("/<int:id>/delete", methods=("POST",))
 @login_required
 def delete(id):
     """Delete a post.
 
-     Ensures that the post exists and that the logged in user is the
+    Ensures that the post exists and that the logged in user is the
     author of the post.
-    """ 
+    """
+    get_post(id)
+    Post.query.filter_by(id=id).delete()
+    db.session.commit()
+    return redirect(url_for("blog.index"))
 
-            
 
+@bp.route("/like/<int:id>", methods=['POST'])
+@login_required
+def post_like(id):
+    """Like or unlike a post.
+    
+    Args:
+        id (int): The ID of the post to like or unlike.
+        
+    Returns:
+        Response: A JSON response containing the updated number of likes for the post
+        and whether the current user has liked the post.
+    """
+    post = get_post(id,check_author=False)
+    
+    like = Like.query.filter_by(author=current_user, post_id=id).first()
 
+    if like:
+        db.session.delete(like)
+        liked = False
+    else:
+        new_like = Like(author=current_user, post_id=id)
+        db.session.add(new_like)
+        liked = True
 
+    db.session.commit()
+    return jsonify({"likes": len(post.likes), "liked": liked })

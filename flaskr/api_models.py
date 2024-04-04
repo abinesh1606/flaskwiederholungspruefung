@@ -10,6 +10,7 @@ post_model = api.model("Post", {
     "created":fields.DateTime,
     "author_id":fields.Integer,
 })
+
 post_input_model = api.model("PostInput", {
     "title": fields.String(required=True, description="Post title"),
     "body": fields.String(required=True, description="Post description"),

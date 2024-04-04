@@ -1,60 +1,46 @@
-import os
-from flask import Flask,Blueprint
+from flask_login import UserMixin
+from datetime import datetime
+from .extensions import db
 
 
-def create_app(test_config=None):
-    """Create and configure an instance of the Flask application."""
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        # a default secret that should be overridden by instance config
-        SECRET_KEY="dev",
-        # store the database in the instance folder
-        SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(app.instance_path, "flaskr.sqlite"),
-        SQLALCHEMY_TRACK_MODIFICATIONS=False
-    )
+class User(db.Model, UserMixin):
+    __tablename__ = 'users'
     
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(255), nullable=False)
     
-    
-    app.config['RESTX_MASK_SWAGGER'] = False
+    posts = db.relationship('Post', backref='author', passive_deletes=True)
+    likes = db.relationship('Like', backref='author', passive_deletes=True)
 
-    if test_config is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile("config.py", silent=True)
-    else:
-        # load the test config if passed in
-        app.config.update(test_config)
+    def __repr__(self):
+        return f'<User {self.username}>'
 
-    # ensure the instance folder exists
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+class Post(db.Model):
+    __tablename__ = 'posts'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(120), nullable=False)
+    body = db.Column(db.Text, nullable=False)
+    
+    created = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
 
-    @app.route("/hello")
-    def hello():
-        return "Hello, World!"
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete="CASCADE"), nullable=False)
     
-    from .extensions import db,login_manager,api
-    blueprint = Blueprint('api', __name__, url_prefix='/api')
+    likes = db.relationship('Like', backref='post', passive_deletes=True)
 
-    api.init_app(blueprint)
-    from .resources import ns
-    api.add_namespace(ns)
-    
-    db.init_app(app)
-    login_manager.init_app(app)
+    def __repr__(self):
+        return f'<Post {self.title}>'
 
-    from .db_models import User
+class Like(db.Model):
+    __tablename__ = 'likes'
     
-    @login_manager.user_loader
-    def user_loader(user_id):
-        return User.query.get(int(user_id))
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
     
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete="CASCADE"), nullable=False)
+    
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete="CASCADE"), nullable=False)
 
-    
-
-
-    
-    
-
-    
+    def __repr__(self):
+        return f'<Like {self.id}>'
