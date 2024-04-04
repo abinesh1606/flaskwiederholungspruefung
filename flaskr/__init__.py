@@ -40,6 +40,12 @@ def create_app(test_config=None):
     api.init_app(blueprint)
     from .resources import ns
     api.add_namespace(ns)
+    
+    db.init_app(app)
+    login_manager.init_app(app)
+    
+
+    
 
 
     
