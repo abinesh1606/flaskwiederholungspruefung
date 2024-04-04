@@ -75,6 +75,13 @@ def login():
         flash(error)
 
          return render_template("auth/login.html")
+    
+    @bp.route("/logout")
+def logout():
+    """Clear the current user session using flask-login logout_user method"""
+    logout_user()
+    return redirect(url_for("index"))
+
         
 
 
