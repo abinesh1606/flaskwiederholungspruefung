@@ -33,6 +33,14 @@ def create_app(test_config=None):
     @app.route("/hello")
     def hello():
         return "Hello, World!"
+    
+    from .extensions import db,login_manager,api
+    blueprint = Blueprint('api', __name__, url_prefix='/api')
+
+    api.init_app(blueprint)
+    from .resources import ns
+    api.add_namespace(ns)
+
 
     
     
