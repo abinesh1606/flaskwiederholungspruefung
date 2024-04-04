@@ -67,6 +67,11 @@ def login():
         elif not check_password_hash(user.password, password):
             error = "Incorrect password."
 
+            if error is None:
+            # login user using flask-login method
+            login_user(user, remember=remember_me)
+            return redirect(url_for("index"))
+
 
 
 
