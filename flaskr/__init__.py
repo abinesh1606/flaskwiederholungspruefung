@@ -34,8 +34,7 @@ def create_app(test_config=None):
     def hello():
         return "Hello, World!"
 
-    from .extensions import db,login_manager,api
-    blueprint = Blueprint('api', __name__, url_prefix='/api')
+    
     
 
     
