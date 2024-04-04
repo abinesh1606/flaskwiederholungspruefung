@@ -46,6 +46,16 @@ def register():
             else:
                 # Success, go to the login page.
                 return redirect(url_for("auth.login"))
+        
+        flash(error)
+
+    return render_template("auth/register.html")
+
+
+@bp.route("/login", methods=("GET", "POST"))
+def login():
+    """Log in a registered user by using login_user from flask-login."""
+    if request.method == "POST":
 
 
                 
