@@ -59,6 +59,9 @@ def login():
         password = request.form["password"]
         remember_me = True if request.form.get('remember_me') else False
 
+         error = None
+        user = User.query.filter_by(username=username).first()
+
 
 
 @bp.route("/login", methods=("GET", "POST"))
