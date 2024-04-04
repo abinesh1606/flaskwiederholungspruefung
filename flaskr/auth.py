@@ -38,6 +38,8 @@ def register():
                 db.session.add(new_user)
                 db.session.commit()
 
+                
+
 def login_required(view):
     """View decorator that redirects anonymous users to the login page."""
 
