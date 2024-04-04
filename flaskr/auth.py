@@ -16,6 +16,9 @@ bp = Blueprint("auth", __name__, url_prefix="/auth")
 @bp.route("/register", methods=("GET", "POST"))
 def register():
     """Register a new user. """
+     Validates that the username is not already taken. Hashes the
+    password for security.
+    """
 
 def login_required(view):
     """View decorator that redirects anonymous users to the login page."""
