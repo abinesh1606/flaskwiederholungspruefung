@@ -11,12 +11,15 @@ from .db_models import User
 from .extensions import db
 from sqlalchemy import exc
 
+
 bp = Blueprint("auth", __name__, url_prefix="/auth")
+
 
 @bp.route("/register", methods=("GET", "POST"))
 def register():
-    """Register a new user. 
-     Validates that the username is not already taken. Hashes the
+    """Register a new user.
+
+    Validates that the username is not already taken. Hashes the
     password for security.
     """
     if request.method == "POST":
@@ -37,7 +40,7 @@ def register():
                 )
                 db.session.add(new_user)
                 db.session.commit()
-                except exc.IntegrityError:
+            except exc.IntegrityError:
                 # if any error occurs it rolls back to previous state
                 db.session.rollback()
                 # The username was already taken, which caused the
@@ -46,10 +49,11 @@ def register():
             else:
                 # Success, go to the login page.
                 return redirect(url_for("auth.login"))
-        
+
         flash(error)
 
     return render_template("auth/register.html")
+
 
 @bp.route("/login", methods=("GET", "POST"))
 def login():
@@ -59,31 +63,27 @@ def login():
         password = request.form["password"]
         remember_me = True if request.form.get('remember_me') else False
 
-         error = None
+        error = None
         user = User.query.filter_by(username=username).first()
+
 
         if user is None:
             error = "Incorrect username."
         elif not check_password_hash(user.password, password):
             error = "Incorrect password."
 
-            if error is None:
+        if error is None:
             # login user using flask-login method
             login_user(user, remember=remember_me)
             return redirect(url_for("index"))
-        
+
         flash(error)
 
-         return render_template("auth/login.html")
-    
-    @bp.route("/logout")
+    return render_template("auth/login.html")
+
+
+@bp.route("/logout")
 def logout():
     """Clear the current user session using flask-login logout_user method"""
     logout_user()
     return redirect(url_for("index"))
-
-        
-
-
-
-
