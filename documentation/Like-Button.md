@@ -7,6 +7,9 @@ In der Entwicklung der Blog-Anwendung soll eine Funktion eingebaut werden, die e
 - Clientseitige Implementierung mit JavaScript: Implementierung der Like-Schaltfläche unter Verwendung von JavaScript zum Senden von Backend-Anfragen.
 ### Entschluss
 Ich habe beschlossen, die Like-Schaltflächen-Funktion mit JavaScript zu implementieren, um Backend-Anfragen für Datenbankinteraktionen zu senden.
+![mermaidcgart_likebutton](https://github.com/abinesh1606/flaskwiederholungspruefung/assets/149621097/3e4204d5-e038-4fd7-9fe0-16a0c3734aa3)
+
+
 ### Begründung
 
 Die Client-seitige Implementierung mit JavaScript bietet ein reaktionsschnelles und interaktives Benutzererlebnis und entlastet gleichzeitig die Verarbeitung auf dem Server. Dieser Ansatz stellt sicher, dass Datenbankinteraktionen sicher auf der Serverseite behandelt werden, wodurch das Risiko von Manipulationen oder Missbrauch minimiert wird. Darüber hinaus ermöglicht die Verwendung von JavaScript zum Senden von Backend-Anfragen eine effiziente Handhabung von Likes, ohne die gesamte Seite neu laden zu müssen, was das Benutzererlebnis verbessert.
