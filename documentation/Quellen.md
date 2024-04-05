@@ -1,0 +1,47 @@
+### Quellen
+## Im folgenden Teil werden die Quellen aufgelistet, die ich benutzt habe. 
+
+-	20181003_flask_auth.py (o. D.): Gist, [online] https://gist.github.com/aokitashipro/51f49e78c7f5468aa1c22feb42690c20.
+-	20181003_flask_auth.py (o. D.): Gist, [online] https://gist.github.com/aokitashipro/51f49e78c7f5468aa1c22feb42690c20.
+-	Alexander-Eck - overview (o. D.): GitHub, [online] https://github.com/Alexander-Eck.
+-	Ambroz, Angela (2018a): Full stack Python: My first Flask app - Angela Ambroz, [online] https://www.angelaambroz.com/blog/posts/2018/Feb/05/full_stack_python_my_first_flask_app/.
+-	Ambroz, Angela (2018b): Full stack Python: My first Flask app - Angela Ambroz, [online] https://www.angelaambroz.com/blog/posts/2018/Feb/05/full_stack_python_my_first_flask_app/.
+-	anton-l/python_sample_10k · Datasets at Hugging Face (o. D.): [online] https://huggingface.co/datasets/anton-l/python_sample_10k.
+-	anton-l/python_sample_10k · Datasets at Hugging Face (o. D.): [online] https://huggingface.co/datasets/anton-l/python_sample_10k.
+-	Build software better, together (o. D.): GitHub, [online] https://github.com/topics/problem-solving.
+-	Finxter - Create Your Six-Figure Coding Business (2022): [ERROR FIXED] “Attempted relative import in non-package” even with __init__.py, [YouTube] https://www.youtube.com/watch?v=pm1IK0fBuhw.
+-	Flask-Restful (o. D.): GitHub - flask-restful/flask-restful: Simple framework for creating REST APIs, GitHub, [online] https://github.com/flask-restful/flask-restful.
+-	Flask-RESTful — Flask-RESTful 0.3.10 documentation (o. D.): [online] https://flask-restful.readthedocs.io/en/latest/.
+-	Flask-Restless-NG — Flask-Restless-NG  documentation (o. D.): [online] https://flask-restless-ng.readthedocs.io/en/latest/.
+-	flask-smorest: Flask/Marshmallow-based REST API framework — flask-smorest 0.44.0 documentation (o. D.): [online] https://flask-smorest.readthedocs.io/en/latest/.
+-	flask中models设计 - 20180616 - 博客园 (o. D.): [online] https://www.cnblogs.com/yuqiangli0616/p/10266908.html.
+-	flask中models设计 - 20180616 - 博客园 (o. D.): [online] https://www.cnblogs.com/yuqiangli0616/p/10266908.html.
+-	freeCodeCamp.org (2019): Learn Flask for Python - Full Tutorial, [YouTube] https://www.youtube.com/watch?v=Z1RJmh_OqeA.
+-	Grinberg, Miguel (o. D.): The Flask Mega-Tutorial, Part I: Hello, World!, Copyright (C) 2012-2024 Miguel Grinberg, [online] https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world.
+-	Grundlegende Schreib- und Formatierungssyntax - GitHub-Dokumentation (o. D.): GitHub Docs, [online] https://docs.github.com/de/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.
+-	ImportError: attempted relative import with no known parent package (2021): Napuzba, [online] https://napuzba.com/a/import-error-relative-no-parent.
+-	Kwong, Lynn (o. D.): Deal with Common Types of SQLAlchemy Exceptions for Running SQL Queries in Python, plainenglish.io/community/deal-with-common-types-of-sqlalchemy-exceptions-for-running-sql-queries-in-python-9ec8db, [online] https://plainenglish.io/community/deal-with-common-types-of-sqlalchemy-exceptions-for-running-sql-queries-in-python-9ec8db.
+-	Learning Software (2023): Integrate swagger and model validation to python flask APIs with flask-restx, [YouTube] https://www.youtube.com/watch?v=G4Tng6666SI.
+-	Markdown Tutorial (o. D.): [online] https://www.markdowntutorial.com/.
+-	Marshmallow-Code (o. D.): GitHub - marshmallow-code/flask-smorest: DB agnostic framework to build auto-documented REST APIs with Flask and marshmallow, GitHub, [online] https://github.com/marshmallow-code/flask-smorest.
+-	Melanie (2023): SQLAlchemy: Was ist das? Wozu dient es?, Weiterbildung Data Science | DataScientest.com, [online] https://datascientest.com/de/sqlalchemy-was-ist-das-wozu-dient-es.
+-	missing user_loader error exception in flask app (o. D.): Stack Overflow, [online] https://stackoverflow.com/questions/63089350/missing-user-loader-error-exception-in-flask-app.
+-	missing user_loader error exception in flask app (o. D.): Stack Overflow, [online] https://stackoverflow.com/questions/63089350/missing-user-loader-error-exception-in-flask-app.
+-	Mrevutskyi (o. D.): GitHub - mrevutskyi/flask-restless-ng: A Flask extension for creating simple ReSTful JSON APIs from SQLAlchemy models., GitHub, [online] https://github.com/mrevutskyi/flask-restless-ng.
+-	Python, Real (o. D.): Why can’t Python find my modules?, [online] https://realpython.com/lessons/why-cant-python-find-my-modules/.
+-	[python][flask] Flask 入门（以一个博客后台为例） - beautifulzzzz - 博客园 (o. D.): [online] https://www.cnblogs.com/zjutlitao/p/16218348.html.
+-	[python][flask] Flask 入门（以一个博客后台为例） - beautifulzzzz - 博客园 (o. D.): [online] https://www.cnblogs.com/zjutlitao/p/16218348.html.
+-	Python-Restx (o. D.): GitHub - python-restx/flask-restx: Fork of Flask-RESTPlus: Fully featured framework for fast, easy and documented API development with Flask, GitHub, [online] https://github.com/python-restx/flask-restx.
+-	Sebi (o. D.): GitHub - Sebi2030/QuizzOut: Quiz Web-Anwendung basierend auf Flask, GitHub, [online] https://github.com/Sebi2030/QuizzOut.
+-	Sqlalchemy (o. D.): Extract the SQL error message from SQLAlchemy error · sqlalchemy/sqlalchemy · Discussion #10035, GitHub, [online] https://github.com/sqlalchemy/sqlalchemy/discussions/10035.
+-	SQLAlchemy (o. D.): [online] https://www.sqlalchemy.org/.
+-	Storing Flask uploaded images and files on Amazon S3 - GreenAsh (2015a): [online] https://greenash.net.au/thoughts/2015/04/storing-flask-uploaded-images-and-files-on-amazon-s3/.
+
+-	Storing Flask uploaded images and files on Amazon S3 - GreenAsh (2015b): [online] https://greenash.net.au/thoughts/2015/04/storing-flask-uploaded-images-and-files-on-amazon-s3/.
+-	T2sy 作成者 (2019a): Flask – FIS Project, [online] https://fisproject.net/tag/flask/.
+-	https://swagger.io/docs/
+-	T2sy 作成者 (2019b): Flask – FIS Project, [online] https://fisproject.net/tag/flask/.
+-	使用Flask+阿里云ECS构建简易博客系统_FlasKR-CSDN博客 (o. D.): [online] https://blog.csdn.net/snoopy_13579/article/details/129168899.
+-	使用Flask+阿里云ECS构建简易博客系统_FlasKR-CSDN博客 (o. D.): [online] https://blog.csdn.net/snoopy_13579/article/details/129168899.
+-	使用Flask+阿里云ECS构建简易博客系统_FlasKR-CSDN博客 (o. D.): [online] https://blog.csdn.net/snoopy_13579/article/details/129168899.
+-	Zur Orientierung wurde teilweise die AI Gemini von Google genutzt https://gemini.google.com/app
