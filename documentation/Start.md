@@ -1,5 +1,5 @@
 # Flaskwiederholungsprüfung von Abinesh Gulasingam
-**Im folgenden werden erneut die jeweligen Aufgabenstellungen ausgelistet**
+**Im folgenden werden erneut die jeweligen Aufgabenstellungen auFgelistet**
 ## SQLAlchemyund Flask-Login
 
 
