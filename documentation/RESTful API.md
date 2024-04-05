@@ -47,3 +47,6 @@ Nachdem ich zahlreiche Websites und YouTube Videos gesehen habe, habe ich mich d
 - `created`(datetime): Zeit an dem das Like ergeben wurde.
 - `author_id`(int): Die ID des Benutzers, der das Like gegeben hat.
 - `post_id`(int): Die ID des Beitrags mit dem erhaltenen Like.
+
+  ## Hier kann man mit dem Link auf die API zugreifen um interaktiv zu testen :
+   http://127.0.0.1:5000/api/docs/
