@@ -45,3 +45,6 @@
 -	使用Flask+阿里云ECS构建简易博客系统_FlasKR-CSDN博客 (o. D.): [online] https://blog.csdn.net/snoopy_13579/article/details/129168899.
 -	使用Flask+阿里云ECS构建简易博客系统_FlasKR-CSDN博客 (o. D.): [online] https://blog.csdn.net/snoopy_13579/article/details/129168899.
 -	Zur Orientierung wurde teilweise die AI Gemini von Google genutzt https://gemini.google.com/app
+- https://wiki.selfhtml.org/wiki/JavaScript
+- https://www.w3schools.com/js/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript
