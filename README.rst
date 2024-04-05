@@ -11,5 +11,5 @@ $ python -m venv venv && source venv/bin/activate
 # Erforderliche Pakete installieren
 $ pip install -r requirements.txt
 
-# Quiz-Anwendung starten 
-$ python app.py
+# Blog-App starten 
+$ python wsgi.py
