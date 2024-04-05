@@ -48,3 +48,4 @@
 - https://wiki.selfhtml.org/wiki/JavaScript
 - https://www.w3schools.com/js/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- https://github.com/swagger-api/swagger-ui
